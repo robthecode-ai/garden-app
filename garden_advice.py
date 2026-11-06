@@ -1,19 +1,25 @@
+SEASON_ADVICE = {
+    "summer": "Water your plants regularly and provide some shade.\n",
+    "winter": "Protect your plants from frost with covers.\n",
+}
+
+PLANT_ADVICE = {
+    "flower": "Use fertiliser to encourage blooms.",
+    "vegetable": "Keep an eye out for pests!",
+}
+
+SEASON_PLANTS = {
+    "summer": "Tomatoes and peppers can grow great this time of year.",
+    "winter": "Kale and spinach can grow great this time of year.",
+}
+
+
 def get_season_advice(season):
-    if season == "summer":
-        return "Water your plants regularly and provide some shade.\n"
-    elif season == "winter":
-        return "Protect your plants from frost with covers.\n"
-    else:
-        return "No advice for this season.\n"
+    return SEASON_ADVICE.get(season, "No advice for this season.\n")
 
 
 def get_plant_advice(plant_type):
-    if plant_type == "flower":
-        return "Use fertiliser to encourage blooms."
-    elif plant_type == "vegetable":
-        return "Keep an eye out for pests!"
-    else:
-        return "No advice for this type of plant."
+    return PLANT_ADVICE.get(plant_type, "No advice for this type of plant.")
 
 
 # User input for the season and plant type
@@ -32,8 +38,10 @@ advice += get_plant_advice(plant_type)
 # Print the generated advice
 print(advice)
 
-# TODO: Examples of possible features to add:
-# - Add detailed comments explaining each block of code.
-# - Refactor the code into functions for better readability and modularity.
-# - Store advice in a dictionary for multiple plants and seasons.
-# - Recommend plants based on the entered season.
+# Determine recommendations based on the season
+recommendations = SEASON_PLANTS.get(
+    season, "No recommendations for this season."
+    )
+
+# Print the generated recommendations
+print("Plants to consider (check your local climate):", recommendations)
